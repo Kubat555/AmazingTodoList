@@ -15,6 +15,8 @@ export default {
 
 <style >
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,500;1,300&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -25,7 +27,7 @@ body{
 }
 
 .app {
-    margin-left:5%;
+    margin-left:3%;
     font-family: 'Montserrat Alternates', sans-serif;
 }
 /*Обнуление*/

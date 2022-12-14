@@ -23,7 +23,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 5%;
+  width: 60px;
   background-color: #416e85;
   position: fixed;
   height: 100%;
@@ -37,13 +37,13 @@ ul {
 li a {
   display: block;
   color: #000;
-  padding: 15px 16px;
+  padding: 15px 5px;
   text-decoration: none;
 }
 
 li img{
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
 
 li a.active {

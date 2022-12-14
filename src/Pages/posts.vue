@@ -212,7 +212,7 @@ h4 {
 }
 
 .todo-form{
-  position: fixed; top: 50%; left: 60%;
+  position: fixed; top: 50%; left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -262,12 +262,16 @@ h4 {
 .todo-list-search{
   width: 300px;
   height: 38px;
-  font-size: 1.125rem;
-  padding: 1rem 1.5rem;
+  font-size: 14px;
+  padding: 10px 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-right: 50px;
   color: #e5f8fd;
-  background-color: #518099;
+  background-color: rgba(81, 128, 153, 0.69);
+  transition: 0.4s;
+}
+.todo-list-search:focus{
+  background-color: rgba(81, 128, 153, 1);
 }
 
 .todo-list-search::-webkit-input-placeholder{
