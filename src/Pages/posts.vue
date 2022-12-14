@@ -95,6 +95,7 @@
 
 <script setup>
 import {ref, onMounted,computed,watch} from "vue";
+import {db} from "@/Firebase";
 
 const openCreateForm = ref(false);
 const todos = ref([]);

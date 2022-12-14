@@ -17,7 +17,7 @@
         </div>
 
         <div class="weather-box">
-          <div class="temp">{{Math.round(weather.main.temp)}}</div>
+          <div class="temp">{{Math.round(weather.main.temp) + "℃"}}</div>
           <div class="weather">{{weather.weather[0].main}}</div>
         </div>
 
@@ -27,6 +27,8 @@
           </div>
         </div>
       </div>
+      <div style="text-align: center; font-size: 40px; color: white; margin: 70px 0;" v-else>Город не найден!</div>
+
     </main>
   </div>
 </template>
@@ -92,6 +94,7 @@
 
   onMounted(()=>{
     fetchWeather();
+    query.value = '';
   })
 
 
