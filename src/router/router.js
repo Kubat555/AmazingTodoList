@@ -1,6 +1,7 @@
 import Main from "@/Pages/Main.vue";
-import PostPage from "@/Pages/PostPage.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
+import posts from "@/Pages/posts.vue";
+import weather from "@/Pages/weather.vue";
 
 
 const routes = [
@@ -9,8 +10,12 @@ const routes = [
         component: Main
     },
     {
-        path:'/Posts',
-        component: PostPage
+        path:'/posts',
+        component: posts
+    },
+    {
+        path:'/weather',
+        component: weather
     },
 ]
 
