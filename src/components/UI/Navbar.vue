@@ -23,7 +23,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 60px;
+  width:4%;
   background-color: #416e85;
   position: fixed;
   height: 100%;

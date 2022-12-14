@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCCY-PnSCR6noRWA4OjEEBCOwKFKK3z0Oc",
-    authDomain: "todolistvue3.firebaseapp.com",
-    projectId: "todolistvue3",
-    storageBucket: "todolistvue3.appspot.com",
-    messagingSenderId: "504613339423",
-    appId: "1:504613339423:web:f316346e802d51b014302a"
+    apiKey: "AIzaSyCp0byWcYC8RkaA0RFjW8ntCGOKZNsRR5o",
+    authDomain: "todolistvue3-913b9.firebaseapp.com",
+    projectId: "todolistvue3-913b9",
+    storageBucket: "todolistvue3-913b9.appspot.com",
+    messagingSenderId: "431484590113",
+    appId: "1:431484590113:web:bb9188a0130f829a1a2b60"
 };
 
 // Initialize Firebase

@@ -27,7 +27,7 @@ body{
 }
 
 .app {
-    margin-left:3%;
+    margin-left:4%;
     font-family: 'Montserrat Alternates', sans-serif;
 }
 /*Обнуление*/

@@ -95,8 +95,10 @@
 
 <script setup>
 import {ref, onMounted,computed,watch} from "vue";
+import { collection, onSnapshot, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import {db} from "@/Firebase";
 
+let firebaseCollection = collection(db, "todos");
 const openCreateForm = ref(false);
 const todos = ref([]);
 const name = ref('');
@@ -129,13 +131,13 @@ const addTodo = ()=>{
     return;
   }
 
-  todos.value.push({
-    content: input_content.value,
+  addDoc(firebaseCollection, {
     category: input_category.value,
-    done: false,
+    content: input_content.value,
     createdAt: Date.now(),
-    deadline: input_deadline
-  })
+    deadline: input_deadline.value,
+    done: false,
+  });
 
   input_content.value = ''
   input_category.value = null
@@ -143,26 +145,53 @@ const addTodo = ()=>{
 }
 
 const removeTodo = (todo)=>{
-  todos.value = todos.value.filter(t => t!==todo)
+  deleteDoc(doc(firebaseCollection, todo.id));
 }
 
 const openForm = (ss)=>{
   openCreateForm.value = ss;
 }
 
-
-
 watch(todos, newVal=>{
-  localStorage.setItem('todos', JSON.stringify(newVal))
+  newVal.forEach(todo =>{
+    const washingtonRef = doc(firebaseCollection, todo.id);
+
+    updateDoc(washingtonRef, {
+      category: todo.category,
+      content: todo.content,
+      createdAt: todo.createdAt,
+      deadline: todo.deadline,
+      done: todo.done,
+    });
+  })
+
 }, {deep:true})
 
 watch(name, (newVal)=>{
   localStorage.setItem('name', newVal)
 })
 
-onMounted(()=>{
+onMounted( () => {
   name.value = localStorage.getItem('name') || '';
-  todos.value = JSON.parse(localStorage.getItem('todos')) || [];
+  // todos.value = JSON.parse(localStorage.getItem('todos')) || [];
+
+
+  onSnapshot(firebaseCollection, (querySnapshot) => {
+    const fbTodos = [];
+    querySnapshot.forEach((doc) => {
+      const todo = {
+        id: doc.id,
+        content: doc.data().content,
+        category: doc.data().category,
+        done: doc.data().done,
+        createdAt: doc.data().createdAt,
+        deadline: doc.data().deadline
+      }
+      fbTodos.push(todo);
+    });
+    todos.value = fbTodos;
+  });
+
 })
 </script>
 
