@@ -94,6 +94,7 @@
 
 
 <script setup>
+import emailjs from 'emailjs-com';
 import {ref, onMounted,computed,watch} from "vue";
 import { collection, onSnapshot, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import {db} from "@/Firebase";
@@ -152,6 +153,19 @@ const openForm = (ss)=>{
   openCreateForm.value = ss;
 }
 
+const sendEmail = (todoTex, todoDeadline)=> {
+  try {
+    emailjs.send("service_hk9nc7k","template_fv11196",
+        {
+          todo: todoTex,
+          deadline: todoDeadline
+        }, 'gteryR8-civrTK-SD',)
+
+  } catch(error) {
+    console.log({error})
+  }
+}
+
 watch(todos, newVal=>{
   newVal.forEach(todo =>{
     const washingtonRef = doc(firebaseCollection, todo.id);
@@ -163,6 +177,10 @@ watch(todos, newVal=>{
       deadline: todo.deadline,
       done: todo.done,
     });
+
+    if(new Date(todo.deadline).getTime() <= Date.now()){
+      sendEmail(todo.content, todo.deadline);
+    }
   })
 
 }, {deep:true})
