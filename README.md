@@ -1,4 +1,4 @@
-# vue-project todo-list + weather app
+# todo-list + weather app
 Vue + Firebase
 
 ## Project setup
