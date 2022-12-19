@@ -1,4 +1,5 @@
-# study-project
+# vue-project todo-list + weather app
+Vue + Firebase
 
 ## Project setup
 ```
